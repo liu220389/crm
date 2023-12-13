@@ -1,0 +1,25 @@
+# 应用服务 WEB 访问端口
+#server.port=8080
+##下面这些内容是为了让MyBatis映射
+##指定Mybatis的Mapper文件
+#mybatis.mapper-locations=classpath:mappers/*xml
+##指定Mybatis的实体目录
+#mybatis.type-aliases-package=com.ttc.fy2312.crms.mybatis.entity
+
+
+server:
+  port: 18080
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.ttc.crms.entity
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://10.25.34.235:3306/crm?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+
+logging:
+  level:
+    root: error
+    com.ttc.fy2312.crms.mapper: debug

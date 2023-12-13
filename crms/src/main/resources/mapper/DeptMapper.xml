@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ttc.crms.mapper.DeptMapper">
+
+    <insert id="addNew" parameterType="dept">
+        <!--     获得新生成的主键列的值 -->
+
+        <selectKey resultType="int" keyProperty="deptno" keyColumn="deptno" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        <!--     因为主键列的值是自动递增的，所有插入时不需要提供 -->
+        INSERT INTO crm.dept (dname, loc) VALUES (#{ dname }, #{loc});
+    </insert>
+
+    <select id="findAll"  resultType="dept">
+        select  *
+        from dept
+    </select>
+
+
+</mapper>
